@@ -1,10 +1,10 @@
-{ cabal, blazeBuilder, text }:
+{ cabal, blazeBuilder, blazeMarkup, text }:
 
 cabal.mkDerivation (self: {
   pname = "blaze-html";
-  version = "0.4.3.3";
-  sha256 = "0a3g4s4k85h2qvs2kcalv83ma4z5arqdydla64q5d1qlk9c99mzg";
-  buildDepends = [ blazeBuilder text ];
+  version = "0.5.0.0";
+  sha256 = "0cfvdf50jbm6w277jf69ac57nbkgkn2ifcp6r2amd3qdbmdgqkwj";
+  buildDepends = [ blazeBuilder blazeMarkup text ];
   meta = {
     homepage = "http://jaspervdj.be/blaze";
     description = "A blazingly fast HTML combinator library for Haskell";

@@ -2,13 +2,13 @@
 
 cabal.mkDerivation (self: {
   pname = "shakespeare-js";
-  version = "0.11.2";
-  sha256 = "1ck39bgl4wswd88w42b1fx5dlsd7r31d60ssv1lk11x6s4cjihgz";
+  version = "1.0.0.3";
+  sha256 = "00x5xvjlaivl42q75cvbwbh055kgvk9i8s4y3xcmk4h7lnpfyzd6";
   buildDepends = [ shakespeare text ];
   meta = {
-    homepage = "http://www.yesodweb.com/book/templates";
+    homepage = "http://www.yesodweb.com/book/shakespearean-templates";
     description = "Stick your haskell variables into javascript/coffeescript at compile time";
-    license = self.stdenv.lib.licenses.bsd3;
+    license = self.stdenv.lib.licenses.mit;
     platforms = self.ghc.meta.platforms;
     maintainers = [ self.stdenv.lib.maintainers.andres ];
   };

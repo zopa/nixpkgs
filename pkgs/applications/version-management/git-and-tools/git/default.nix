@@ -8,15 +8,19 @@
 }:
 
 let
-  version = "1.7.9.4";
+
+  version = "1.7.10.4";
+  
   svn = subversionClient.override { perlBindings = true; };
+  
 in
+
 stdenv.mkDerivation {
   name = "git-${version}";
 
   src = fetchurl {
     url = "http://git-core.googlecode.com/files/git-${version}.tar.gz";
-    sha256 = "c59f4c1e37a99f00022b491a6674f633a00164513efdc269e74ed20537f71c39";
+    sha256 = "1pd8vd9bgvai3n7xw7b11i7gznjma2pb97d29k304wk89mj57kkp";
   };
 
   patches = [ ./docbook2texi.patch ];

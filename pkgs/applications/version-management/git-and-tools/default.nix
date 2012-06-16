@@ -23,6 +23,13 @@ rec {
     ];
   };
 
+  # support for bugzilla
+  gitBz = import ./git-bz {
+    inherit fetchgit stdenv makeWrapper python asciidoc xmlto # docbook2x docbook_xsl docbook_xml_dtd_45 libxslt
+      ;
+    inherit (pythonPackages) pysqlite;
+  };
+
   # Git with SVN support, but without GUI.
   gitSVN = lowPrio (appendToName "with-svn" (git.override {
     svnSupport = true;
@@ -36,10 +43,10 @@ rec {
   });
 
   gitAnnex = lib.makeOverridable (import ./git-annex) {
-    inherit stdenv fetchurl libuuid rsync findutils curl perl git ikiwiki which coreutils;
+    inherit stdenv fetchurl libuuid rsync findutils curl perl git ikiwiki which coreutils openssh;
     inherit (haskellPackages_ghc741) ghc MissingH utf8String pcreLight SHA dataenc
       HTTP testpack hS3 mtl network hslogger hxt json liftedBase monadControl IfElse
-      QuickCheck2 bloomfilter;
+      QuickCheck2 bloomfilter editDistance;
   };
 
   qgit = import ./qgit {
@@ -92,6 +99,8 @@ rec {
     inherit stdenv fetchgit ruby makeWrapper;
     git = gitSVN;
   };
+
+  svn2git_kde = callPackage ./svn2git-kde { };
 
   gitSubtree = import ./git-subtree {
     inherit stdenv fetchurl git asciidoc xmlto docbook_xsl docbook_xml_dtd_45 libxslt;

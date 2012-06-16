@@ -4,7 +4,9 @@
   /* Add your name and email address here.  Keep the list
      alphabetically sorted.  */
 
-  all = "Nix Committers <nix-commits@cs.uu.nl>";
+  aforemny = "Alexander Foremny <alexanderforemny@googlemail.com>";
+  all = "Nix Committers <nix-commits@lists.science.uu.nl>";
+  amiddelk = "Arie Middelkoop <amiddelk@gmail.com>";
   andres = "Andres Loeh <ksnixos@andres-loeh.de>";
   astsmtl = "Alexander Tsamutali <astsmtl@yandex.ru>";
   bjg = "Brian Gough <bjg@gnu.org>";
@@ -25,6 +27,8 @@
   piotr = "Piotr Pietraszkiewicz <ppietrasa@gmail.com>";
   qknight = "Joachim Schiele <js@lastlog.de>";
   raskin = "Michael Raskin <7c6f434c@mail.ru>";
+  rickynils = "Rickard Nilsson <rickynils@gmail.com>";
+  rob = "Rob Vermaas <rob.vermaas@gmail.com>";
   roconnor = "Russell O'Connor <roconnor@theorem.ca>";
   sander = "Sander van der Burg <s.vanderburg@tudelft.nl>";
   shlevy = "Shea Levy <shea@shealevy.com>";

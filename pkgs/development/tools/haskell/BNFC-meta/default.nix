@@ -2,9 +2,10 @@
 
 cabal.mkDerivation (self: {
   pname = "BNFC-meta";
-  version = "0.3";
-  sha256 = "17vmszgq9cyayqlykjbwzvm8mim641vhpzcrdr3l6zb84hr29xgs";
+  version = "0.3.0.3";
+  sha256 = "06k8jnb4gw96gc0ffmczbywn4q2n87zwqa0pl0ada3ldvwaagv4l";
   buildDepends = [ alexMeta happyMeta haskellSrcMeta syb ];
+  noHaddock = true;
   meta = {
     description = "Deriving Quasi-Quoters from BNF Grammars";
     license = self.stdenv.lib.licenses.gpl2;

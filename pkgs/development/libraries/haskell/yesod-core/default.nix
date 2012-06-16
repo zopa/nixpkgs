@@ -1,27 +1,27 @@
-{ cabal, aeson, blazeBuilder, blazeHtml, caseInsensitive, cereal
-, clientsession, conduit, cookie, failure, fastLogger, hamlet
-, httpTypes, liftedBase, monadControl, parsec, pathPieces, random
-, shakespeare, shakespeareCss, shakespeareI18n, shakespeareJs, text
-, time, transformers, transformersBase, vector, wai, waiExtra
-, waiLogger, yesodRoutes
+{ cabal, aeson, blazeBuilder, blazeHtml, blazeMarkup
+, caseInsensitive, cereal, clientsession, conduit, cookie, failure
+, fastLogger, hamlet, httpTypes, liftedBase, monadControl, parsec
+, pathPieces, random, resourcet, shakespeare, shakespeareCss
+, shakespeareI18n, shakespeareJs, text, time, transformers
+, transformersBase, vector, wai, waiExtra, waiLogger, yesodRoutes
 }:
 
 cabal.mkDerivation (self: {
   pname = "yesod-core";
-  version = "0.10.3";
-  sha256 = "1mw78h6h7b4g67kyg4y01rcgi5bpb97hhzx0yqk4bmq23mzisg9m";
+  version = "1.0.1.2";
+  sha256 = "1c9ay0xv2s1kcj92ai0bj1gbml4k4w62n2mw7c5r6m88k8wmxh6z";
   buildDepends = [
-    aeson blazeBuilder blazeHtml caseInsensitive cereal clientsession
-    conduit cookie failure fastLogger hamlet httpTypes liftedBase
-    monadControl parsec pathPieces random shakespeare shakespeareCss
-    shakespeareI18n shakespeareJs text time transformers
-    transformersBase vector wai waiExtra waiLogger yesodRoutes
+    aeson blazeBuilder blazeHtml blazeMarkup caseInsensitive cereal
+    clientsession conduit cookie failure fastLogger hamlet httpTypes
+    liftedBase monadControl parsec pathPieces random resourcet
+    shakespeare shakespeareCss shakespeareI18n shakespeareJs text time
+    transformers transformersBase vector wai waiExtra waiLogger
+    yesodRoutes
   ];
-  noHaddock = true;
   meta = {
     homepage = "http://www.yesodweb.com/";
     description = "Creation of type-safe, RESTful web applications";
-    license = self.stdenv.lib.licenses.bsd3;
+    license = self.stdenv.lib.licenses.mit;
     platforms = self.ghc.meta.platforms;
     maintainers = [ self.stdenv.lib.maintainers.andres ];
   };

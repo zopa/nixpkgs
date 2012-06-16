@@ -2,10 +2,9 @@
 
 cabal.mkDerivation (self: {
   pname = "RepLib";
-  version = "0.5.2";
-  sha256 = "1wcxvl40wlnva2x7z13pm95485lwxbpy5di1mb1din3id8dprxfr";
+  version = "0.5.3";
+  sha256 = "1kpd4qli6fclrr3i21kmdwbpa0la7ssi9pgagzclr3yj2ca2hsgw";
   buildDepends = [ mtl typeEquality ];
-  noHaddock = true;
   meta = {
     homepage = "http://code.google.com/p/replib/";
     description = "Generic programming library with representation types";

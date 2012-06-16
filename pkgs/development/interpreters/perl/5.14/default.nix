@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
     ''
       configureFlags="$configureFlags -Dprefix=$out -Dman1dir=$out/share/man/man1 -Dman3dir=$out/share/man/man3"
 
-      ${stdenv.lib.optionalString (stdenv.system == "armv5tel-linux") ''
+      ${stdenv.lib.optionalString stdenv.isArm ''
         configureFlagsArray=(-Dldflags="-lm -lrt")
       ''}
     '';
@@ -58,4 +58,6 @@ stdenv.mkDerivation rec {
     '';
 
   setupHook = ./setup-hook.sh;
+
+  passthru.libPrefix = "lib/perl5/site_perl";
 }

@@ -75,6 +75,9 @@ stdenv.mkDerivation ({
     /* Allow nixos and nix handle the locale-archive. */
     ./nix-locale-archive.patch
 
+    /* don't use /etc/ld.so.cache, for non-nixos systems */
+    ./dont_use_system_ld_so_cache.patch
+
     /* Without this patch many KDE binaries crash. */
     ./glibc-elf-localscope.patch
   ];
@@ -105,7 +108,7 @@ stdenv.mkDerivation ({
     (if cross.float == "soft" then "--without-fp" else "--with-fp")
     "--enable-kernel=2.6.0"
     "--with-__thread"
-  ] ++ stdenv.lib.optionals (stdenv.system == "armv5tel-linux") [
+  ] ++ stdenv.lib.optionals stdenv.isArm [
     "--host=arm-linux-gnueabi"
     "--build=arm-linux-gnueabi"
     "--without-fp"

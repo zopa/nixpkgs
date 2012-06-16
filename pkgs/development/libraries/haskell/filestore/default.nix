@@ -1,12 +1,18 @@
-{ cabal, Diff, filepath, parsec, split, time, utf8String, xml }:
+{ cabal, Diff, filepath, HUnit, mtl, parsec, split, time
+, utf8String, xml
+}:
 
 cabal.mkDerivation (self: {
   pname = "filestore";
-  version = "0.4.1";
-  sha256 = "02ki6b4rbmk463qmmqia7igkrsr7h1kxal94k6pikkikylx2f8r7";
-  buildDepends = [ Diff filepath parsec split time utf8String xml ];
+  version = "0.5";
+  sha256 = "0cppm8iksz4dnh4kafyfy0cqbidw83rdpgc1mksiwh9c9gaxrlq7";
+  isLibrary = true;
+  isExecutable = true;
+  buildDepends = [
+    Diff filepath HUnit mtl parsec split time utf8String xml
+  ];
+  noHaddock = true;
   meta = {
-    homepage = "http://johnmacfarlane.net/repos/filestore";
     description = "Interface for versioning file stores";
     license = self.stdenv.lib.licenses.bsd3;
     platforms = self.ghc.meta.platforms;

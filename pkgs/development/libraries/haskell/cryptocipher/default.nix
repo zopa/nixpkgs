@@ -1,15 +1,15 @@
-{ cabal, cereal, cryptoApi, cryptoPubkeyTypes, primitive, tagged
-, vector
+{ cabal, cereal, cpu, cryptoApi, cryptoPubkeyTypes, primitive
+, tagged, vector
 }:
 
 cabal.mkDerivation (self: {
   pname = "cryptocipher";
-  version = "0.3.0";
-  sha256 = "17jbzssdbprspadz5ynyam60l5iw7s809irklfg1ii89x26mlyix";
+  version = "0.3.4";
+  sha256 = "12ndzvb9sa37yn118f9ixm3qka36x6whvmxc5wax97rfm7y49p6r";
   isLibrary = true;
   isExecutable = true;
   buildDepends = [
-    cereal cryptoApi cryptoPubkeyTypes primitive tagged vector
+    cereal cpu cryptoApi cryptoPubkeyTypes primitive tagged vector
   ];
   meta = {
     homepage = "http://github.com/vincenthz/hs-cryptocipher";
