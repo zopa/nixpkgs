@@ -13,6 +13,8 @@ stdenv.mkDerivation rec {
   buildNativeInputs = [ cmake automoc4 shared_mime_info ];
 
   enableParallelBuilding = true;
+
+  patches = [ ./owner.patch ];
   
   meta = with stdenv.lib; {
     description = "KDE PIM Storage Service";
