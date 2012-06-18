@@ -31,6 +31,9 @@ stdenv.mkDerivation rec {
         src = ./dlopen-absolute-paths.diff;
         inherit cups icu libXfixes;
         glibc = stdenv.gcc.libc;
+      }) (fetchurl {
+        url = http://www.linuxfromscratch.org/patches/blfs/svn/qt-everywhere-opensource-src-4.8.1-glib_fix-1.patch;
+        sha256 = "1y845w6mcffqc2bawn51dyz4ac606hn3qsb4lm2nj28d7ixw5fz3";
       })
     ] ++ stdenv.lib.optional gtkStyle (
       substituteAll {
