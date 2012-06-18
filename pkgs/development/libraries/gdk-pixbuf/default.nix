@@ -2,11 +2,11 @@
 , jasper, shared_mime_info }:
 
 stdenv.mkDerivation {
-  name = "gdk-pixbuf-2.26.0";
+  name = "gdk-pixbuf-2.26.1";
 
   src = fetchurl {
-    url = mirror://gnome/sources/gdk-pixbuf/2.26/gdk-pixbuf-2.26.0.tar.xz;
-    sha256 = "0k959w31wqkk4jsvbxyzczq3far5dqdmdg34c9nbn33i6cx8s0m5";
+    url = mirror://gnome/sources/gdk-pixbuf/2.26/gdk-pixbuf-2.26.1.tar.xz;
+    sha256 = "1fn79r5vk1ck6xd5f7dgckbfhf2xrqq6f3389jx1bk6rb0mz22m6";
   };
 
   # !!! We might want to factor out the gdk-pixbuf-xlib subpackage.
