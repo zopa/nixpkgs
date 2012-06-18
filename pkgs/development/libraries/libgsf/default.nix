@@ -4,11 +4,11 @@
 
 
 stdenv.mkDerivation rec {
-  name = "libgsf-1.14.22";
+  name = "libgsf-1.14.23";
 
   src = fetchurl {
-    url = mirror://gnome/sources/libgsf/1.14/libgsf-1.14.22.tar.xz;
-    sha256 = "0gvq1gbbcl078s3kgdc508jp7p3a3ps34fj4pf8vsamprbikpwm5";
+    url = mirror://gnome/sources/libgsf/1.14/libgsf-1.14.23.tar.xz;
+    sha256 = "05zvaazf0d584nfirwsz7889lbsl4v781hslv3kda6akiwbwdhdz";
   };
 
   buildNativeInputs = [ intltool pkgconfig ];
@@ -16,6 +16,12 @@ stdenv.mkDerivation rec {
     [ perl perlXMLParser gettext bzip2 gnome_vfs python gdk_pixbuf ];
 
   propagatedBuildInputs = [ glib libxml2 libbonobo ];
+
+  patches = [ ( fetchurl {
+    url = "http://git.gnome.org/browse/libgsf/patch/?id=7a4a9d62e0efa8510a9c8aa957233327d11f355b";
+    name = "gsf-rename-clone.patch";
+    sha256 = "0dvgw3j1gny13b8928wsvkp3wz3wihlwx2xaf05rircmrj6pjqzm";
+  } ) ];
 
   doCheck = true;
 
