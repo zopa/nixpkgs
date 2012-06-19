@@ -754,11 +754,7 @@ let
 
   glxinfo = callPackage ../tools/graphics/glxinfo { };
 
-  gnokii = builderDefsPackage (import ../tools/misc/gnokii) {
-    inherit intltool perl gettext libusb pkgconfig bluez readline pcsclite
-      libical gtk glib;
-    inherit (xorg) libXpm;
-  };
+  gnokii = callPackage ../tools/misc/gnokii { };
 
   gnugrep =
     # Use libiconv only on non-GNU platforms (we can't test with

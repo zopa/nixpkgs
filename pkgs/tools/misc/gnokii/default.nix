@@ -1,31 +1,23 @@
-a :  
-let 
-  fetchurl = a.fetchurl;
+{ stdenv, fetchurl, perl, intltool, gettext, libusb, glib, gtk, pkgconfig
+, bluez, readline, libXpm, pcsclite, libical }:
 
-  s = import ./src-for-default.nix; 
-  buildInputs = with a; [
-    perl intltool gettext libusb
-    glib gtk pkgconfig bluez readline
-    libXpm pcsclite libical
-  ];
-in
+stdenv.mkDerivation rec {
+  name = "gnokii-0.6.31";
 
-assert a.stdenv ? glibc;
+  src = fetchurl {
+    url = "http://www.gnokii.org/download/gnokii/0.6.x/${name}.tar.bz2";
+    sha256 = "0095n2nyjy1wn19vp4f96832qk71hh0dhp6a08s6m9n10lxhhnlg";
+  };
 
-rec {
-  src = a.fetchUrlFromSrcInfo s;
+  buildInputs =
+    [ perl intltool gettext libusb glib gtk pkgconfig bluez readline libXpm
+      pcsclite libical
+    ];
 
-  inherit buildInputs;
-  configureFlags = [];
-
-  /* doConfigure should be removed if not needed */
-  phaseNames = [ "doConfigure" "doMakeInstall"];
-
-  inherit(s) name;
   meta = {
     description = "Cellphone tool";
     homepage = http://www.gnokii.org;
-    maintainers = [a.lib.maintainers.raskin];
-    platforms = with a.lib.platforms; linux;
+    maintainers = with stdenv.lib.maintainers; [ raskin urkud ];
+    platforms = stdenv.lib.platforms.linux;
   };
 }
