@@ -1,7 +1,7 @@
 { stdenv, fetchurl, pkgconfig, intltool, babl, gegl, gtk, glib, gdk_pixbuf
 , pango, cairo, freetype, fontconfig, lcms2, libpng, libjpeg, poppler, libtiff
 , webkit, libmng, librsvg, libwmf, zlib, libzip, ghostscript, aalib, jasper
-, python, pygtk, libart_lgpl, libexif, gettext, xlibs }:
+, python, pygtk, libart_lgpl, libexif, gettext, xlibs, shared_mime_info }:
 
 stdenv.mkDerivation rec {
   name = "gimp-2.8.0";
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
     [ pkgconfig intltool babl gegl gtk glib gdk_pixbuf pango cairo
       freetype fontconfig lcms2 libpng libjpeg poppler libtiff webkit
       libmng librsvg libwmf zlib libzip ghostscript aalib jasper
-      python pygtk libart_lgpl libexif gettext 
+      python pygtk libart_lgpl libexif gettext shared_mime_info
     ];
 
   passthru = { inherit gtk; }; # probably its a good idea to use the same gtk in plugins ?
