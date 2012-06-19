@@ -1,0 +1,27 @@
+From 80efe63c1bf1379d9672daef9a24f082f94d63db Mon Sep 17 00:00:00 2001
+From: Alexandre Rostovtsev <tetromino@gentoo.org>
+Date: Fri, 20 Apr 2012 14:10:38 -0400
+Subject: [PATCH] Fix building with glib-2.32
+
+In >=glib-2.31, most glib subheaders cannot be included directly. See
+http://git.gnome.org/browse/glib/commit/?id=7455dd370eb37ce3b0b409ff6120501f37b50569
+---
+ loudmouth/lm-error.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/loudmouth/lm-error.c b/loudmouth/lm-error.c
+index 103aaaf..74d3315 100644
+--- a/loudmouth/lm-error.c
++++ b/loudmouth/lm-error.c
+@@ -25,7 +25,7 @@
+  */
+ 
+ #include <config.h>
+-#include <glib/gerror.h>
++#include <glib.h>
+ #include "lm-error.h"
+ 
+ GQuark
+-- 
+1.7.8.5
+

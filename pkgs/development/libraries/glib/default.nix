@@ -19,6 +19,8 @@ stdenv.mkDerivation rec {
     sha256 = "0kgzcc1y9ngxph3i8jmlihqcmvxvwqy2kr4m3kws5r07513fnp5n";
   };
 
+  patches = [ ./drop-requires-private.patch ];
+
   # configure script looks for d-bus but it is only needed for tests
   buildInputs = [ pcre ] ++ (if stdenv.isLinux then [ libelf ] else [ libiconv ]);
   buildNativeInputs = [ perl pkgconfig gettext python ];
