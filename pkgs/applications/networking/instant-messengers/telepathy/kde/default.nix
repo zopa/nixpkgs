@@ -9,6 +9,7 @@ let
   overrides = {
     telepathy_logger_qt = x : x // {
       NIX_CFLAGS_COMPILE = "-I${dbus_libs}/include/dbus-1.0";
+      propagatedBuildInputs = [ telepathy_logger ];
     };
   };
 
@@ -16,8 +17,8 @@ let
     auth_handler = [ qjson ];
     call_ui = [ qt_gstreamer telepathy_glib ];
     contact_applet = [ kde_workspace ];
-    telepathy_logger_qt = [ telepathy_logger qt_gstreamer ];
-    text_ui = [ ktp.telepathy_logger_qt qt_gstreamer telepathy_logger ];
+    telepathy_logger_qt = [ qt_gstreamer ];
+    text_ui = [ ktp.telepathy_logger_qt qt_gstreamer ];
   };
 
   extraBuildNativeInputs = {
