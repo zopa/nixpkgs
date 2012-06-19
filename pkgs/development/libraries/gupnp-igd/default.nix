@@ -1,11 +1,11 @@
 { stdenv, fetchurl, pkgconfig, glib, gupnp, python, pygobject }:
  
 stdenv.mkDerivation rec {
-  name = "gupnp-igd-0.2.1";
+  name = "gupnp-igd-0.2.0";
 
   src = fetchurl {
-    url = "http://www.gupnp.org/sites/all/files/sources/${name}.tar.gz";
-    sha256 = "18ia8l24hbylz3dnbg2jf848bmbx0hjkq4fkwzzfn57z021f0fh2";
+    url = mirror://gnome/sources/gupnp-igd/0.2/gupnp-igd-0.2.0.tar.xz;
+    sha256 = "0llr80130i11pgg7wj1acfhlm7q66m953ngh549h53gi272ifk4j";
   };
 
   propagatedBuildInputs = [ gupnp ];
