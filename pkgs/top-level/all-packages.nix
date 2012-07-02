@@ -7366,7 +7366,9 @@ let
 
   sox = callPackage ../applications/misc/audio/sox { };
 
-  spotify = callPackage ../applications/audio/spotify { };
+  spotify = callPackage ../applications/audio/spotify { 
+    inherit (gnome) GConf;
+  };
 
   stalonetray = callPackage ../applications/window-managers/stalonetray {};
 
