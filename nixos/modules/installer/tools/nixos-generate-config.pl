@@ -407,8 +407,8 @@ EOF
 
         write_file($fn, <<EOF);
 # Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# your system.  Help is available in the configuration.nix(5) man page,
+# tty8 and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
@@ -420,7 +420,7 @@ EOF
 
 $bootLoaderConfig
   # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless.
+  # networking.networkmanager.enable = true;  # Enables wireless.
 
   # Select internationalisation properties.
   # i18n = {
@@ -428,6 +428,12 @@ $bootLoaderConfig
   #   consoleKeyMap = "us";
   #   defaultLocale = "en_US.UTF-8";
   # };
+
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  # environment.systemPackages = with pkgs; [
+  #   wget
+  # ];
 
   # List services that you want to enable:
 
@@ -445,6 +451,19 @@ $bootLoaderConfig
   # Enable the KDE Desktop Environment.
   # services.xserver.displayManager.kdm.enable = true;
   # services.xserver.desktopManager.kde4.enable = true;
+
+  # Define your user and don't forget to set password with passwd
+  # users.extraUsers.guest = {
+  #   name = "guest";
+  #   group = "guest";
+  #   uid = 1000;
+  #   createHome = true;
+  #   extraGroups = [ "networkmanager" ];
+  #   home = "/home/guest";
+  #   shell = "/run/current-system/sw/bin/bash";
+  # };
+  # users.extraGroups.guest.gid = 1000;
+
 }
 EOF
     } else {
