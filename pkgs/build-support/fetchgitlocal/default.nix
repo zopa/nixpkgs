@@ -10,7 +10,8 @@ let
       preferLocalBuild = true;
     } ''
       cd ${srcStr}
-      DOT_GIT=$(git rev-parse --resolve-git-dir .git) # path to repo
+      DOT_GIT=$(git rev-parse --resolve-git-dir .git || # path to non-bare repo
+        git-rev-parse --resolve-git-dir . )             # path to bare repo
 
       cp $DOT_GIT/index $DOT_GIT/index-user # backup index
       git reset # reset index
